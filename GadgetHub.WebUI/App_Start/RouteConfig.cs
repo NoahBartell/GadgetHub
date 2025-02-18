@@ -15,7 +15,7 @@ namespace GadgetHub.WebUI
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
+                url: "",
                 defaults: new { controller = "Gadget", action = "List", id = UrlParameter.Optional }
             );
         }
