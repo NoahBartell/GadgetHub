@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,19 +19,27 @@ namespace GadgetHub.WebUI.Controllers
         }
 
         int pageSize = 4;
-        public ViewResult List(int page = 1)
+        public ViewResult List(string category, int page = 1)
         {
-            GadgetListViewModel model = new GadgetListViewModel {
-                Gadgets = myGadgetRepository.Gadgets.OrderBy(p => p.ProductId).Skip((page - 1) * pageSize).Take(pageSize),
-
-               PagingInfo = new PagingInfo
-               {
-                   CurrentPage = page,
-                   ItemsPerPage = pageSize,
-                   TotalItems = myGadgetRepository.Gadgets.Count()
-               }
+            GadgetListViewModel model = new GadgetListViewModel
+            {
+                Gadgets = myGadgetRepository.Gadgets
+                .Where(p => category == null || p.Category == category)
+                .OrderBy(p => p.ProductId)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = pageSize,
+                    TotalItems = category == null ? myGadgetRepository.Gadgets.Count() : myGadgetRepository.Gadgets.Where(e => e.Category == category).Count()
+                },
+                CurrentCategory = category
             };
             return View(model);
+
+            //return View(myProductRepository.Products.OrderBy(p => p.ProductId).Take(PageSize)
+            //    .Skip((page-1) * PageSize));
         }
     }
 }
