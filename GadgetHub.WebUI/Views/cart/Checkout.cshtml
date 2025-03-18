@@ -1,0 +1,64 @@
+﻿@model GadgetHub.Domain.Entities.ShippingDetails
+
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+
+<p>Please enter your details and click "Complete Order" to finalize your purchase.</p>
+
+@using (Html.BeginForm("Checkout", "Cart", FormMethod.Post))
+{
+    <div class="text-danger">@Html.ValidationSummary()</div>
+
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Address Line 1</label>
+        @Html.TextBoxFor(m => m.Line1, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Line1, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Address Line 2</label>
+        @Html.TextBoxFor(m => m.Line2, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>City</label>
+        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>State</label>
+        @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Zip Code</label>
+        @Html.TextBoxFor(m => m.Zip, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Zip, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Country</label>
+        @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(m => m.GiftWrap) Gift Wrap?
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Complete Order</button>
+}

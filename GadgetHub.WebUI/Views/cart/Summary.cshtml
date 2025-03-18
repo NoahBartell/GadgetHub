@@ -1,0 +1,7 @@
+﻿@model GadgetHub.Domain.Entities.Cart
+
+<div>
+    @Model.Lines.Sum(x => x.Quantity) items, Total: @Model.ComputeTotalValue().ToString("c")
+    <a href="@Url.Action("Index", "Cart")" class="btn btn-light">View Cart</a>
+</div>
+

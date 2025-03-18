@@ -8,9 +8,8 @@
     </h3>
 
     <span class="lead">@Model.Description</span>
-    <span class="lead">@Model.Brand</span>
 
-    @*@using (Html.BeginForm("AddToCart", "Cart"))
+    @using (Html.BeginForm("AddToCart", "Cart"))
     {
         <div class="float-end">
             @Html.HiddenFor(x => x.ProductId)
@@ -18,5 +17,5 @@
 
             <input type="submit" class="btn btn-success" value="Add to Cart" />
         </div>
-    }*@
+    }
 </div>

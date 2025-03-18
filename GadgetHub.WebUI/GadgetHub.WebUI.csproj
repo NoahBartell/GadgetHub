@@ -146,13 +146,16 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\GadgetController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="htmlhelpers\PagingHelpers.cs" />
+    <Compile Include="infrastructure\binders\CartModelBinder.cs" />
     <Compile Include="infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\GadgetListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +190,10 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\cart\Checkout.cshtml" />
+    <Content Include="Views\cart\Completed.cshtml" />
+    <Content Include="Views\cart\Index.cshtml" />
+    <Content Include="Views\cart\Summary.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

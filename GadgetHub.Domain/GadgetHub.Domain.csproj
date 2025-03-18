@@ -52,10 +52,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="abstract\IGadgetRepository.cs" />
+    <Compile Include="abstract\IOrderProcessor.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="concrete\EFDbContext.cs" />
     <Compile Include="concrete\EFGadgetRepository.cs" />
+    <Compile Include="concrete\EmailOrderProcessor.cs" />
+    <Compile Include="concrete\EmailSettings.cs" />
+    <Compile Include="entities\Cart.cs" />
     <Compile Include="entities\Gadget.cs" />
+    <Compile Include="entities\ShippingDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

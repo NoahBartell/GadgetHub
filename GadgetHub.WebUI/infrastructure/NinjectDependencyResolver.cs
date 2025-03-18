@@ -8,6 +8,7 @@ using Ninject;
 using GadgetHub.Domain.Entities;
 using GadgetHub.Domain.Abstract;
 using GadgetHub.Domain.Concrete;
+using System.Configuration;
 
 namespace GadgetHub.WebUI.Infrastructure
 {
@@ -42,6 +43,13 @@ namespace GadgetHub.WebUI.Infrastructure
             //});
             //myKernal.Bind<IGadgetRepository>().ToConstant(myMock.Object);
             myKernal.Bind<IGadgetRepository>().To<EFGadgetRepository>();
+
+            EmailSettings emailSettings = new EmailSettings
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+            myKernal.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
+                .WithConstructorArgument("settings", emailSettings);
         }
     }
 }
