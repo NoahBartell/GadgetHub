@@ -16,7 +16,7 @@ namespace GadgetHub.Domain.Concrete
         public string ServerName { get; set; } = "smtp.example.com";
         public int ServerPort { get; set; } = 587;
         public bool WriteAsFile { get; set; } = false;
-        public string FileLocation { get; set; } = @"C:\sports_store_emails";
+        public string FileLocation { get; set; } = @"C:\gadget_hub_emails";
     }
 
 }
