@@ -147,6 +147,8 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\GadgetController.cs" />
     <Compile Include="Controllers\NavController.cs" />
@@ -154,9 +156,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="htmlhelpers\PagingHelpers.cs" />
+    <Compile Include="infrastructure\abstract\IAuthProvider.cs" />
     <Compile Include="infrastructure\binders\CartModelBinder.cs" />
+    <Compile Include="infrastructure\concrete\FormsAuthProvider.cs" />
     <Compile Include="infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\GadgetListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -195,6 +200,10 @@
     <Content Include="Views\cart\Completed.cshtml" />
     <Content Include="Views\cart\Index.cshtml" />
     <Content Include="Views\cart\Summary.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\admin\Edit.cshtml" />
+    <Content Include="Views\admin\Index.cshtml" />
+    <Content Include="Views\account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

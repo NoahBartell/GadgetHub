@@ -81,6 +81,7 @@
     <Compile Include="concrete\EmailSettings.cs" />
     <Compile Include="entities\Cart.cs" />
     <Compile Include="entities\Gadget.cs" />
+    <Compile Include="entities\RouteConfig.cs" />
     <Compile Include="entities\ShippingDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

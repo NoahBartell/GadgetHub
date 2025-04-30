@@ -9,6 +9,8 @@ using GadgetHub.Domain.Entities;
 using GadgetHub.Domain.Abstract;
 using GadgetHub.Domain.Concrete;
 using System.Configuration;
+using GadgetHub.WebUI.Infrastructure.Abstract;
+using GadgetHub.WebUI.Infrastructure.Concrete;
 
 namespace GadgetHub.WebUI.Infrastructure
 {
@@ -43,6 +45,9 @@ namespace GadgetHub.WebUI.Infrastructure
             //});
             //myKernal.Bind<IGadgetRepository>().ToConstant(myMock.Object);
             myKernal.Bind<IGadgetRepository>().To<EFGadgetRepository>();
+
+            myKernal.Bind<IAuthProvider>().To<FormsAuthProvider>();
+
 
             EmailSettings emailSettings = new EmailSettings
             {

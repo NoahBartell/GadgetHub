@@ -2,6 +2,13 @@
 
 
 <div class="card p-3 bg-light text-dark mb-2">
+    @if (Model.ImageData != null)
+    {
+        <div class="pull-left" style="margin-right: 10px">
+            <img src="@Url.Action("GetImage", "Gadget", new { Model.ProductId })" alt="Product Image" class="img-thumbnail" height="75" width="75" />
+        </div>
+    }
+
     <h3>
         <strong>@Model.Name</strong>
         <span class="badge bg-primary float-end">@Model.Price.ToString("c")</span>
